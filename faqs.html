@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--so it is responsive-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FAQs</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!--import the js-->
+    <style src="style.css"></style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Jqurry is needed for dropdown-->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body onload="loadXMLDoc()" class="bodyOfFaqs">
+    <header>
+        <h1>Phone Fix Booking FAQs</h1>
+    </header>
+
+    <main>
+        <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for cards">
+        <!--From https://codepen.io/r3hab/pen/GBdXEq-->
+        <script>
+            function myFunction() { //A search function used to sort the cards depending of the search input
+                var input, filter, cards, cardContainer, h5, title, i;
+                input = document.getElementById("myFilter");
+                filter = input.value.toUpperCase();
+                cardContainer = document.getElementById("items");
+                cards = cardContainer.getElementsByClassName("card");
+                for (i = 0; i < cards.length; i++) {
+                    title = cards[i].querySelector(".card-body h3.card-title");
+                    if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+        <div id="items"> <!--The 3 cards used in the XML -->
+            <div id="box0" class="container card w-75 ">
+
+            </div>
+
+            <div id="box1" class="container card w-75 ">
+
+            </div>
+
+            <div id="box2" class="container card w-75 ">
+
+            </div>
+        </div>
+
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            th,
+            td {
+                padding: 5px;
+            }
+        </style>
+
+
+        <br><br>
+        <table id="demo"></table>
+
+        <script>
+            function loadXMLDoc() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        getXml(this);
+                    }
+                };
+                xmlhttp.open("GET", "faqs.xml", true);
+                xmlhttp.send();
+            }
+            function getXml(xml) { //This method NEEDS opermiseation and is a total sin to humanity
+                var i;
+                var xmlDoc = xml.responseXML;
+                var table = ""; //variables used to set the contents of the XML request to the inerHTML
+                var box1 = "";
+                var box2 = "";
+                var x = xmlDoc.getElementsByTagName("box");
+                for (i = 0; i < x.length; i++) {
+                    if (i == 0) {
+                        table += "<div class=\"card-body\"> <h3 class=\"card-title\">" + //This is the XML structure to make sure that the text is structured properly
+                            x[0].getElementsByTagName("heading")[0].childNodes[0].nodeValue +
+                            "</h3><div class=\"card-text\">" +
+                            x[0].getElementsByTagName("text")[0].childNodes[0].nodeValue +
+                            "</div> </div>";
+                    } else if (i == 1) {
+                        box1 += "<div class=\"card-body\"> <h3 class=\"card-title\">" +
+                            x[1].getElementsByTagName("heading")[0].childNodes[0].nodeValue +
+                            "</h3><div class=\"card-text\">" +
+                            x[1].getElementsByTagName("text")[0].childNodes[0].nodeValue +
+                            "</div> </div>";
+                    } else if (i == 2) {
+                        box2 += "<div class=\"card-body\"> <h3 class=\"card-title\">" +
+                            x[2].getElementsByTagName("heading")[0].childNodes[0].nodeValue +
+                            "</h3><div class=\"card-text\">" +
+                            x[2].getElementsByTagName("text")[0].childNodes[0].nodeValue +
+                            "</div> </div>";
+                    }
+                }
+                document.getElementById("box0").innerHTML = table; //setting the innerHTML of the cards above to the XML varables 
+                document.getElementById("box1").innerHTML = box1;
+                document.getElementById("box2").innerHTML = box2;
+            }
+        </script>
+
+
+    </main>
+
+    <footer class="footer bottom-footer faqsFooter">
+
+        <p>Advanced Web Design. Copyright @ 2018</p>
+    </footer>
+</body>

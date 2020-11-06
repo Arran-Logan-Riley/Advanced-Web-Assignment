@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> <!--XML used in the webstie for the FAQ section-->
+<boxs>
+    <box>
+        <heading>why do I have to pay a service fee?</heading>
+        <text>You must pay a service fee if you do not have a warenty</text>
+    </box>
+    <box>
+        <heading>What is a bond for?</heading>
+        <text>The bond is for the sum of all the borrowed equipement</text>
+    </box>
+    <box>
+    <heading>Do I need a charger with my courtesy phone?</heading>
+    <text>You do need a charger with a courtesy phone</text>
+    </box> 
+</boxs>

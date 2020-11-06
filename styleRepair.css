@@ -1,0 +1,41 @@
+.headOfInvocePage{ /*CSS for the invoce page and each of it ouputs */ 
+    background-color: gray;
+    padding: 1em;
+}
+
+.JobPad{
+    padding-right: 7em;
+
+}
+
+.invoicePad{
+    padding-right: 5em;
+}
+
+.paymentPad{
+    padding-right: 5em;
+}
+
+.purchaseDateOut{
+    padding-right: 5em;
+}
+
+.repairDateTime{
+    padding-right: 4em;
+}
+
+.warentyStatus{
+    padding-right: 5em;
+}
+
+.ImeiNumber{
+    padding-right: 5em;
+}
+
+.deivceMake{
+    padding-right: 5em;
+}
+
+.modelNumber{
+    padding-right: 5em;
+}

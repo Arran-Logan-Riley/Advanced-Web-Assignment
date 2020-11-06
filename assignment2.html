@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--so it is responsive-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+  
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <!--import the js-->
+  <style src="style.css"></style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--Jqurry is needed for dropdown-->
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!--CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!--Auto-complete addresses API-->
+    <script src="https://www.addy.co.nz/scripts/addy.js?key=demo-api-key&callback=initAddy&excludePostBox=false&maxItems=10" async defer></script>
+
+    <!--Implementing the MAP AIP-->
+    <link rel="stylesheet" href="jquery-jvectormap-2.0.1.css" type="text/css" media="screen"/>
+  <script src="jquery.js"></script>
+  <script src="jquery-jvectormap-2.0.1.min.js"></script>
+  <script src="jquery-jvectormap-world-mill.js"></script>
+  
+
+</head>
+
+<body onload="onloadFunction()">
+  <header class="header">
+    <h1 class="text-light text-center">Phone fox booking system</h1>
+    <nav class="menu-area">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="jsExtentions.html">Extension</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form name="repairForm" id="repairBookingForm" method="GET" action="process.php">
+      <div class="form-layout">
+        <section class="customerDetails container">
+          <h2>Customer Details</h2>
+          <form>
+            <div class="form-group">
+              <!--Only a fieldset can have the border through its text-->
+              <fieldset class="fieldset1">
+                <legend class="ledgend1">Customer*</legend>
+                <!--Radial button for consumer-->
+                <div>
+                  <div class="form-check">
+                    <input class="form-check-input" onclick="detectCostChange()" type="radio" name="exampleRadios" id="comsumerRadio"
+                      value="option1" >
+                    <label class="form-check-label" for="comsumerRadio">
+                      Consumer
+                    </label>
+                  </div>
+                  <!--Radial button for Business-->
+                  <div class="form-check">
+                    <input class="form-check-input" onclick="detectCostChange()" type="radio" name="exampleRadios" id="exampleRadios2"
+                      value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Business
+                    </label>
+                  </div>
+              </fieldset>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Title*</label>
+                <div class="col-sm-8">
+                  <select class="form-control form-control-lg" id="titleSelect">
+                    <option>Mr</option>
+                    <option>Mrs</option>
+                    <option>MS</option>
+                    <option>Miss</option>
+                    <option>Dr</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!--Genral info area-->
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">First Name*</label>
+                <div class="col-sm-8">
+                  <input name="inputFN" type="text" class="form-control" id="inputFN" placeholder="First Name" required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Last Name*</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="inputLN" placeholder="Last Name" required>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Street*</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="street" placeholder="Street" auto-complete required>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Suburb</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="suburb" placeholder="Suburb">
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">City*</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="city" placeholder="City" required>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Post Code</label>
+                <div class="col-sm-8">
+                  <input name="postCode" type="text" class="form-control" id="postCode" placeholder="Post Code">
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Phone Number</label>
+                <div class="col-sm-8">
+                  <input name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                  <input name="email" type="email" class="form-control" id="email" placeholder="Email" required>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+        <!--Repair form section-->
+        <section class="repairDetails container">
+          <h2>Repair Details</h2>
+          <form>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label"> Purchase date</label>
+              <div class="col-sm-8">
+              <input oninput="checkWarentyDate()" type="date" class="form-control" id="inputDate" placeholder="Date">
+            </div>
+          </div>
+          <div class="form-group row">
+            <Label class="col-sm-4 col-form-label">Repair date</Label>
+            <div class="col-sm-8">
+            <input type="date" class="form-control" id="inputDate2" placeholder="Date">
+          </div>
+        </div>
+            <!--Field set-->
+            <fieldset class="fieldset1">
+              <legend class="ledgend2">Under Warranty</legend>
+              <!--Checkbox inside field set-->
+              <div class="form-check warranty">
+                <input onclick="warrentlyChecked()"class="form-check-input" type="checkbox" value="" id="warrantyCheck">
+                <label  class="form-check-label" for="warrantyCheck">
+                  Warranty
+                </label>
+              </div>
+            </fieldset>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">IMEI Number</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="imeiNumber" placeholder="IMEI Number" required>
+              </div>
+            </div>
+            
+            <!--List of phone makers-->
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Make*</label>
+              <div class="col-sm-8">
+                <select class="form-control form-control-lg" id="phoneSelect2" required>
+                  <option>Samsung</option>
+                  <option>Apple</option>
+                  <option>LG</option>
+                  <option>Motorola</option>
+                  <option>Nokia</option>
+                  <option>Sony</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            
+            <!--Mobile Number-->
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Model Number</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="mobileNumber" placeholder="Mobile Number" required>
+              </div>
+            </div>
+            
+            <!--Fault list-->
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Fault Category *</label>
+              <div class="col-sm-8">
+                <select class="form-control form-control-lg" id="faultSelect1" required>
+                  <option>Battery</option>
+                  <option>Charging</option>
+                  <option>SD-Storage</option>
+                  <option>Software</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+              
+            <!---Text area-->
+            <label>Description</label>
+            <textarea class="form-control" id="descriptionTextArea" cols="30" rows="5" required></textarea>
+          </form>
+        </section>
+
+        <!--Courtesty phone section-->
+        <section class="courtesyPhone container">
+          <h2>Courtesy Phone</h2>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Item Type</label>
+            <div class="col-sm-8">
+              <select id="phoneSelect" class="form-control form-control-lg" required>
+                <option>Iphone</option>
+                <option>Other</option>
+                <option>Charger</option>
+              </select>
+            </div>
+          </div>
+            
+            
+          
+          <!--Add and Remove buttons-->
+          <button type="button" onclick="addToTable()" class="btn btn-light">Add</button>
+          <button type="button" onclick="removeToTable()" class="btn btn-light">Remove</button>
+          <!--Phone table-->
+          <table id="table1" class="table">
+            <thead class="thead-dark">
+              <!--0-->
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Cost</th>
+              </tr>
+            </thead>
+            <!--1-->
+            <tbody>
+              
+          </table>
+
+        </section>
+        <!--Cost section-->
+        <section class="cost container">
+          <h2>Cost</h2>
+          <!--Inputs are readonly most of these are number only, may cause js issues-->
+          
+          <!--<input type="text" class="form-control" id="bond" placeholder="Bond" readonly>--> 
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="space1">Bond:          </label>
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" id="bond" aria-label="Amount (to the nearest dollar)" readonly>
+            <div class="input-group-append">
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="space2">Service Fee:</label>
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" id="serviceFee" aria-label="Amount (to the nearest dollar)" readonly>
+            <div class="input-group-append">
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="space3">Total</label>
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" id="totalNoGst" aria-label="Amount (to the nearest dollar)" readonly>
+            <div class="input-group-append">
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="space4">GST</label>
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" id="gst" aria-label="Amount (to the nearest dollar)" readonly>
+            <div class="input-group-append">
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="space5">Total+GST</label>
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" id="totalGst" aria-label="Amount (to the nearest dollar)" readonly>
+            <div class="input-group-append">
+            </div>
+          </div>
+
+        </section>
+        <!--Weird thing i'll probbly delete-->
+        <section class="buttonSection">
+          <div class="container my-3">
+            <div class="col-md-12 text-center">
+              <button type="reset" onclick="resetForm()" class="btn btn-dark ">Reset</button>
+              <button type="button" onclick="checkFirstName(document.repairForm.inputFN, document.repairForm.inputLN);checkPostCode();checkEmail(document.repairForm.email);phoneumberCheck(document.repairForm.phoneNumber); checkIMEINumber(); isFuture('inputDate'); isFuture('inputDate2');addInvoice();openWindow()" class="btn btn-dark">Submit</button>
+              <button type="button" onclick="goToFaq()" class="btn btn-dark"> FAQ?</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <script>
+
+      </script>
+
+  </main>
+  </div>
+  <footer class="footer-fixed">
+    <p class="footerText">Advanced Web Design, Copyright @BCS - EIT</p>
+  </footer>
+</body>

@@ -1,0 +1,208 @@
+/*mobile first*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/*Declear variable*/ 
+:root{
+    --main-color: #000664;
+    --header-color: #2a3a4a;
+    --nav-color: #4DD0E1;
+    --customer-detail-color: #ffe4c4;
+    --repair-detail-color:#f0ffff; 
+    --coutesy-phone-color: #5f9ea0; 
+    --cost-section-color: #e9967a;
+    --button-section-color:#e9967a; 
+    --footer-color: #2a3a4a; 
+}
+
+header{
+    background-color: var(--header-color);
+    min-height: 12vh;
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+header .title-area{
+    padding:1.5em 0.5em;
+
+}
+
+header nav ul li{
+    display: block;
+    background-color: #5f9ea0;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    padding: 0.5em;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+}
+
+/*main*/
+main{
+    
+}
+
+.form-layout{
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+}
+
+.customerDetails{
+    background-color: var(--customer-detail-color);
+    min-height: 30vh;
+}
+
+
+.repairDetails{
+    background-color: var(--repair-detail-color);
+    min-height: 30vh;
+}
+
+.courtesyPhone{
+    background-color: var(--coutesy-phone-color);
+    min-height: 15vh;
+}
+
+
+.cost{
+    background-color: var(--cost-section-color);
+    min-height: 20vh;
+}
+
+.buttonSection{
+    background-color: var(--button-section-color);
+    min-height: 5vh;
+}
+
+footer{
+    background-color: var(--footer-color);
+    min-height: 3em;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*style for tablet*/
+@media screen and (min-width: 600px){
+    header nav ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.3em;
+        
+    }
+}
+
+
+/*style for desktop*/
+
+@media screen and (min-width: 800px){
+    header{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+    }
+    /*modify the main area*/ 
+    .form-layout{
+        display: grid;
+        grid-template-areas: 'box1 box2 box3'
+                             'box1 box2 box4'
+                             'box5 box5 box5';
+        
+    }
+    .customerDetails{
+        grid-area: box1;
+    }
+    .repairDetails{
+        grid-area: box2;
+    }
+    .courtesyPhone{
+        grid-area: box3;
+    }
+    .cost{
+        grid-area: box4;
+    }
+    .buttonSection{
+        grid-area: box5;
+    }
+}
+
+/*customer type border*/
+
+
+.fieldset1 {
+    border: 2px solid grey;
+}
+/*ledgend in customer details section*/ 
+.ledgend1{
+    margin-left: 1em;
+    width: 28%;
+    font-size: 1em;
+}
+/*ledgend in repair details*/ 
+.ledgend2{
+    font-size: 1em;
+    margin-left: 1em;
+    width: 34%;
+    display: inline-block;
+}
+/*warranty check box*/
+.warranty{
+    padding: .5em;
+    margin-left: .5em;
+}
+/*footer text*/
+.footerText{
+ text-align: center;
+}
+
+.space1{
+    padding-right: 7em;
+}
+
+.space2{
+    padding-right: 4em;
+}
+
+.space3{
+    padding-right: 7.4em;
+}
+
+.space4{
+    padding-right: 7.4em;
+}
+
+.space5{
+    padding-right: 4.6em;
+}
+
+/*---------*/
+.card{
+    padding-bottom: 3em;
+    margin-bottom: 3em;
+    background-color: #ffe4c4 !important;
+}
+
+.bodyOfFaqs{
+    background-color: #ecfaf3;
+}
+
+.faqsFooter{
+    padding-bottom: 5%;
+    text-align: center;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="styleRepair.css">
+    <script src="script.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+<!-- jQuery and JS bundle w/ Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+</head>
+
+<html>
+    <script type="text/javascript"></script> <!--Head of the invoce page allt he outputs for the Database are here-->
+    <header class="headOfInvocePage"> 
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Repiar Booking</h2>
+            </div>
+            <div class="col-md-5 text-right"> <p>Amount due:</p>
+                <h2 id="moenyOut">money</h2>
+            </div>
+    </header>
+    
+    <body >
+        <div class="container">
+        <section class="topSection">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="font-weight-bold">Customer</span>
+                </div>
+                <div class="col-md-3 text-right"><span class="font-weight-bold">Repair Job</span></div>
+            </div>
+            
+        </section>
+
+        <div class="row">
+            <div class="col-md-6 name"> <span id="nameOut">Name</span>  <div class="addressOut" >
+                <span id="addressOut">Address</span> 
+                <div class="postCodeOut">
+                    <span id="postCodeOut">postCode</span> 
+                    <div class="phoneNumberOut">
+                        <span id="phoneNumberOut">Phone Number</span> 
+                        <div class="emailOut">
+                            <span id="emailOut">Email</span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-6 text-right"> <span class="JobPad font-weight-bold">Job Number:</span> <span id="jobNumberOut">job number</span> 
+                <div class="invoceNumberOut"> <span class="invoicePad font-weight-bold">Invoice Number:</span>
+                   <span id="invoiceNumberOut">//inovceNumber</span> 
+                    <div class="paymentOut"> <span class="paymentPad font-weight-bold">Payment Due:</span>
+                        <span id="paymentOut">payment</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <hr>
+          <h2>Repair Details</h2>
+          <div class="invoceNumberOut"> <span class="purchaseDateOut font-weight-bold">Purchase Date:</span>
+            <span id="purhaseOut">//15/03/2020</span>
+            <div class="invoceNumberOut"> <span class="repairDateTime font-weight-bold">Repair Date/Time:</span>
+            <span id="repairDate">//15/03/2020</span>
+            <div class="invoceNumberOut"> <span class="warentyStatus font-weight-bold">Under Warenty:</span>
+                <span id="warentyState">//no</span> 
+            <div class="invoceNumberOut"> <span class="ImeiNumber font-weight-bold">IMEI Number:</span>
+                <span id="IMEINumbers">//109343092</span>
+            <div class="invoceNumberOut"> <span class="deivceMake font-weight-bold">Device Make:</span>
+                <span id="deviceMake">//Samsung</span> 
+            <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">Model Number:</span>
+                <span id="modelNumber">//Note 10</span> 
+            <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">Fault Category:</span>
+                <span id="faultOut">//Battery</span>
+                <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">Description:</span>
+                <span id="descriptionOut">//Example Text</span>
+
+        <h2>Courtesy Loan Device Details</h2>
+        <p id="tableOut"></p>
+
+        <div class="row">
+            <div class="col-md-6">
+                
+            </div>
+            <div class="col-md-6 text-right"> <h2>Totals</h2>
+                <div>
+                    <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">Bond:</span>
+                        <span id="bondOut">//305</span>
+                </div>
+                <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">Serivce Fee:</span>
+                    <span id="serviceFeeOut">//223</span>
+                </div>
+                <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">Total:</span>
+                    <span id="totalOut">//223</span>
+                </div>
+                <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">GST:</span>
+                   <span id="gstOut">//224</span>
+                </div>
+                <div class="invoceNumberOut"> <span class="modelNumber font-weight-bold">Total(+GST):</span>
+                    <span id="totalGstOut">//223</span>
+                </div>
+            </div>
+        </div>
+        
+                    
+        <div id="allInvoices" class="all-invoices"></div>
+        <script type="text/javascript">displayInvoices();</script> <!--Calling the display method-->
+    
+        <!--<table id="invoice_table"></table>-->
+        
+    </div>
+    </body>
+    
+</html>

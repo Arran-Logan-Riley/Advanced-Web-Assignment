@@ -1,0 +1,24 @@
+{
+    "contacts":[
+    
+        {
+        "name": "Daniel Dang",
+        "email": "anEamil" ,
+        "address": [
+            "Taradale","501 Gloourster st.", "Napier","4112"
+        ]
+        },
+        {
+            "name": "David Slelton",
+            "email": "anotherEmail",
+            "address": ["Gisbone","290 Plamerston Road","Gisborne","4010"]
+        },
+        {
+            "name": "Ian Purdo",
+            "email": "theLastEmail",
+            "address": ["Auckland","238 Queen ST.","Auckland","1010"]
+        }
+    
+    ]
+
+}
